@@ -136,13 +136,6 @@ public class Solution1 {
          * }
          * **/
 
-
-                Arrays.stream(balloons)
-                .map(Arrays::asList)
-                .distinct()
-                .forEach(row -> System.out.printf("%-3s%-7s%s\n", row.get(0), row.get(1), row.get(2)));
-
-
         System.out.println("Name  ID  Dept ");
         for(int i=0;i<array2.length;i++){
             for(int j=0;j<array2[0].length;j++){
