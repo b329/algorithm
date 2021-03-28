@@ -66,7 +66,8 @@ public class Solution1 {
         System.out.println(list);
 
         List<List<Integer>> lists =
-                Arrays.stream(balloons).map(Arrays::asList).distinct().collect(Collectors.toList());
+                Arrays.stream(balloons).map(Arrays::asList)
+                        .distinct().collect(Collectors.toList());
         System.out.println(lists);
 
         /* 이건 바로 앞의 array 와 바로 뒤의 array 밖에 비교할 수 없네. */
@@ -89,7 +90,7 @@ public class Solution1 {
 //        System.out.println(strSet);
         /* Sample End */
 
-        /** line 80 까지 이렇게 하먄 안된다는 것을 알수 있다. **/
+        /** line 80 까지 이렇게 하면 안된다는 것을 알수 있다. **/
         // ArrayList with duplicate elements
 //        ArrayList<int[]> arrayList = new ArrayList<int[]>(Arrays.asList(balloons));
 //        System.out.println(Arrays.toString(arrayList.get(0)));
@@ -123,7 +124,7 @@ public class Solution1 {
         //System.out.println(removedDuplicateHashSet);
 
         System.out.println("\n");
-        /** line 46 부터 여기까지 이렇게 하먄 안된다는 것을 알수 있다. **/
+        /** line 46 부터 여기까지 이렇게 하면 안된다는 것을 알수 있다. **/
 
         /**
          * Case 1 It is short, but need to covert the primitive type to reference type
