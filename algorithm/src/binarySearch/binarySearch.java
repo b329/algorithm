@@ -33,9 +33,12 @@ class BinarySearch {
     public static void main(String args[])
     {
         BinarySearch ob = new BinarySearch();
-        int arr[] = { 2, 3, 4, 10, 40, 5, 50, 70, 55, 33 };
+        int arr[] = { 2, 3, 4, 10, 40, 5, 50, 70, 55, 33 }; // primitive type
+        Integer arr2[] = { 2, 3, 4, 10, 40, 5, 50, 70, 55, 33 }; // reference type
 
         Arrays.sort(arr);
+        Arrays.sort(arr2, Collections.reverseOrder());
+
         int n = arr.length;
         int x = 55;
         int result = ob.binarySearch(arr, 0, n - 1, x);
