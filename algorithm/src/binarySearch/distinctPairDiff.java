@@ -2,8 +2,7 @@ package binarySearch;
 
 class distinctPairDiff {
 
-    static int countPairsWithDiffK(int arr[],
-                                   int n, int k)
+    static int countPairsWithDiffK(int arr[], int n, int k)
     {
         int count = 0;
 
