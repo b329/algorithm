@@ -1,5 +1,6 @@
-public class WildcardSample {
+package generalFunction;
 
+public class WildcardSample {
     public void callWildcardMethod() {
         // dㅓ떤 객체를 wildcard 로 선언하고, 그 객체의 값은 가여올 수 있다.
         // 하지만, 객체에 제네릭 타입으로 값을 지정하는 것은 "불가능"하다.
@@ -21,7 +22,7 @@ public class WildcardSample {
     }
 
     public static void main(String[] args) {
-        WildcardSample sample = new WildcardSample();
+        DynamicProgramming.WildcardSample sample = new DynamicProgramming.WildcardSample();
         sample.callWildcardMethod();
 
     }

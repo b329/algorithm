@@ -1,3 +1,5 @@
+package generalFunction;
+
 public class WildcardGeneric<W> {
     W wildcard;
     public void setWildcard(W wildcard) {

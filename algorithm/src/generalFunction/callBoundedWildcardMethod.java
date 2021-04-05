@@ -1,3 +1,5 @@
+package generalFunction;
+
 public class callBoundedWildcardMethod {
 
 
@@ -24,7 +26,7 @@ public class callBoundedWildcardMethod {
         System.out.print(value);
     }
 
-    public void boundedWildcardMethod(WildcardGeneric <? extends Car> c) {
+    public void boundedWildcardMethod(WildcardGeneric<? extends Car> c) {
         Car value = c.getWildcard();
         System.out.print(value);
     }

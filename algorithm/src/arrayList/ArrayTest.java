@@ -1,3 +1,5 @@
+package arrayList;
+
 import java.util.Arrays;
 
 public class ArrayTest {

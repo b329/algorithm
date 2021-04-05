@@ -1,3 +1,5 @@
+package arrayList;
+
 import java.util.Scanner;
 
     	public class Array1D {

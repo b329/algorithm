@@ -1,34 +1,35 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+package binarySearch;
+
 import java.io.IOException;
-import java.io.*;
-import java.math.*;
-import java.text.*;
-import java.util.*;
-import java.util.regex.*;
+import java.util.Scanner;
 
-public class BinaryGap2 {
+public class BinaryGap {
 
-	public static int solution(int N) {
+	public static int gap(int number) {
 
 		int binaryGap = 0;
-		boolean found_one = false;
+		String binaryString = Integer.toBinaryString(number);
+		char[] characters = binaryString.toCharArray();
 		
-//		String binaryString = Integer.toBinaryString(N);
-//		char[] characters = binaryString.toCharArray();
-		
-		for (int j = 0; N > 0; N /= 2) {
-			if (N % 2 == 0) {
-				j++;
-			} else {
-				if ( j > binaryGap && found_one == true) {
+		int j = 0;
+		Character c;
+		for (int i = 0; i < characters.length; i++) {
+			c = characters[i];
+			
+			if (c.equals('0')) {
+				j = j + 1;
+			}
+			
+			if (c.equals('1')) {
+				if ( j > binaryGap) {
 					binaryGap = j;
 				}
-				found_one = true;
+				
 				j = 0;
+			
 			}
+
 		}
-		
 		System.out.println(binaryGap);
 		return binaryGap;
         
@@ -44,8 +45,7 @@ public class BinaryGap2 {
 
         int t = Integer.parseInt(scanner.nextLine().trim());
 
-        solution(t);
-        
+        gap(t);
 //        for (int tItr = 0; tItr < t; tItr++) {
 //            int n = Integer.parseInt(scanner.nextLine().trim());
 //

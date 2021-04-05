@@ -1,3 +1,5 @@
+package generalFunction;
+
 public class SportsCar extends Car {
     public SportsCar(String name) {
         super(name);

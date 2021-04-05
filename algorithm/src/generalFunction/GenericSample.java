@@ -1,3 +1,5 @@
+package generalFunction;
+
 public class GenericSample {
 
     public void checkCastingDTO() {

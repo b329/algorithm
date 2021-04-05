@@ -1,3 +1,5 @@
+package generalFunction;
+
 import java.io.Serializable;
 
 public class CastingDTO implements Serializable {

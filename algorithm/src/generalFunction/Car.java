@@ -1,3 +1,4 @@
+package generalFunction;
 
 public class Car {
     protected String name;
