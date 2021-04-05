@@ -6,4 +6,5 @@ import java.security.PublicKey;
 public class Wallet {
     public PrivateKey privateKey;
     public PublicKey publicKey;
+
 }
