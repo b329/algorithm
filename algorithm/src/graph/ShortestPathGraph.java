@@ -1,3 +1,5 @@
+package graph;
+
 public class ShortestPathGraph {
 
         private int n;           //노드들의 수
