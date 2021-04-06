@@ -2,11 +2,17 @@ package mBlockChain;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class NoobChain {
 
             public static ArrayList<Block> blockchain = new ArrayList<Block>();
+            public static HashMap<String,TransactionOutput> UTXOs = new HashMap<String,TransactionOutput>(); //list of all unspent transactions.
+
             public static int difficulty = 5;
+
+            public static Wallet walletA;
+            public static Wallet walletB;
 
             public static void main(String[] args) {
                 //add our blocks to the blockchain ArrayList:
@@ -27,6 +33,8 @@ public class NoobChain {
                 String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockchain);
                 System.out.println("\nThe block chain: ");
                 System.out.println(blockchainJson);
+
+
 
             }
 
