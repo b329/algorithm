@@ -34,33 +34,33 @@ public class Transaction {
         );
     }
 
+    //Signs all the data we don't wish to be tampered with.
+    public void generateSignature(PrivateKey privateKey) {
+        String data = StringUtil.getStringFromKey(sender) + StringUtil.getStringFromKey(reciepient) + Float.toString(value)	;
+        signature = StringUtil.applyECDSASig(privateKey,data);
+    }
+
+    //Verifies the data we signed hasn't been tampered with
+    public boolean verifiySignature() {
+        String data = StringUtil.getStringFromKey(sender) + StringUtil.getStringFromKey(reciepient) + Float.toString(value)	;
+        return StringUtil.verifyECDSASig(sender, data, signature);
+    }
+
     //Returns true if new transaction could be created.
-    public class processTransaction {
+    public boolean processTransaction() {
 
-        //Signs all the data we don't wish to be tampered with.
-        public void generateSignature(PrivateKey privateKey) {
-            String data = StringUtil.getStringFromKey(sender) + StringUtil.getStringFromKey(reciepient) + Float.toString(value)	;
-            signature = StringUtil.applyECDSASig(privateKey,data);
-        }
-
-        //Verifies the data we signed hasn't been tampered with
-        public boolean verifiySignature() {
-            String data = StringUtil.getStringFromKey(sender) + StringUtil.getStringFromKey(reciepient) + Float.toString(value)	;
-            return StringUtil.verifyECDSASig(sender, data, signature);
-        }
-
-    if(verifiySignature() == false) {
+        if(verifiySignature() == false) {
             System.out.println("#Transaction Signature failed to verify");
             return false;
         }
 
         //gather transaction inputs (Make sure they are unspent):
-		for(TransactionInput i : inputs) {
+        for(TransactionInput i : inputs) {
             i.UTXO = NoobChain.UTXOs.get(i.transactionOutputId);
         }
 
         //check if transaction is valid:
-		if(getInputsValue() < NoobChain.minimumTransaction) {
+        if(getInputsValue() < NoobChain.minimumTransaction) {
             System.out.println("#Transaction Inputs to small: " + getInputsValue());
             return false;
         }
@@ -68,21 +68,21 @@ public class Transaction {
         //generate transaction outputs:
         float leftOver = getInputsValue() - value; //get value of inputs then the left over change:
         transactionId = calulateHash();
-		outputs.add(new TransactionOutput( this.reciepient, value,transactionId)); //send value to recipient
-		outputs.add(new TransactionOutput( this.sender, leftOver,transactionId)); //send the left over 'change' back to sender
+        outputs.add(new TransactionOutput( this.reciepient, value,transactionId)); //send value to recipient
+        outputs.add(new TransactionOutput( this.sender, leftOver,transactionId)); //send the left over 'change' back to sender
 
         //add outputs to Unspent list
-		for(TransactionOutput o : outputs) {
+        for(TransactionOutput o : outputs) {
             NoobChain.UTXOs.put(o.id , o);
         }
 
         //remove transaction inputs from UTXO lists as spent:
-		for(TransactionInput i : inputs) {
+        for(TransactionInput i : inputs) {
             if(i.UTXO == null) continue; //if Transaction can't be found skip it
             NoobChain.UTXOs.remove(i.UTXO.id);
         }
 
-		return true;
+        return true;
     }
 
     //returns sum of inputs(UTXOs) values
@@ -103,5 +103,4 @@ public class Transaction {
         }
         return total;
     }
-
 }
